@@ -4,16 +4,14 @@ import { db } from "@/lib/firebase";
 
 const useTests = () => {
   const [tests, setTests] = useState<any[]>([]);
-
   const getTests = async () => {
     try {
       const snapshot = await getDocs(collection(db, "Detections"));
       const data: any[] = [];
 
       snapshot.forEach((doc) => {
-        // Update this line based on your document field (e.g., `testName`)
         const testData = doc.data();
-        data.push(testData);
+        data.push({...testData, name : doc.id});
       });
 
       console.log("data fetch:", data);
