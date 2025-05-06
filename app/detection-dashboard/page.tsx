@@ -218,7 +218,7 @@ export default function DetectionDashboardPage() {
                   center={mapCenter}
                   isLoading={isLoading}
                   zoom={9}
-                  points={selectedTest}
+                  points={selectedTest?.logs}
                   onRefresh={handleRefresh}
                   onError={() => setMapAvailable(false)}
                 />
